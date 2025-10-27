@@ -1,4 +1,3 @@
-// VendorProduct.jsx (updated)
 import React, { useEffect, useState } from "react";
 import Button from "../../../component/Button.jsx";
 import axios from "axios";
@@ -85,6 +84,7 @@ const VendorProduct = () => {
       description: "",
       image: null,
       currentImage: null,
+      isActive: true,
     });
     setEditing(null);
     setShowModal(false);
@@ -168,6 +168,7 @@ const VendorProduct = () => {
       description: product.description,
       image: null,
       currentImage: product.images?.[0] || null,
+      isActive: true,
     });
     setShowModal(true);
   };

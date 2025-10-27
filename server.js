@@ -30,9 +30,14 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://sierra-catalogue.onrender.com'],
+    origin: [
+        'http://localhost:5173',
+        'https://sierra-catalogue.onrender.com',
+        'https://www.sierracatalogue.com'
+    ],
     credentials: true,
 }));
+
 app.use(express.json());
 
 // API Routes

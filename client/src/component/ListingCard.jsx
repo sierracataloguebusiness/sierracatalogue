@@ -8,7 +8,8 @@ import logo from "/src/assets/Sierra Catalogue Logo.jpg";
 
 const API_BASE = "https://sierra-catalogue.onrender.com/api";
 
-const ListingCard = ({ title, description, price, images, stock, id }) => {
+const ListingCard = ({ _id, title, description, price, images, stock }) => {
+  const id = _id; // map backend _id to id
   const [adding, setAdding] = useState(false);
   const [saving, setSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -32,22 +33,21 @@ const ListingCard = ({ title, description, price, images, stock, id }) => {
   }, [id, token]);
 
   const handleAddToCart = async () => {
+    if (!token) {
+      toast.error("You must be logged in to add to cart.");
+      return;
+    }
+
     try {
       setAdding(true);
-      if (!token) {
-        toast.error("You must be logged in to add to cart.");
-        return;
-      }
-
       const res = await axios.post(
         `${API_BASE}/cart/add`,
         { listingId: id, quantity: 1 },
         { headers: { Authorization: `Bearer ${token}` } },
       );
-
       toast.success(res.data.message || "Added to cart!");
-    } catch (error) {
-      console.error("Add to cart error:", error);
+    } catch (err) {
+      console.error("Add to cart error:", err);
       toast.error("Failed to add to cart.");
     } finally {
       setAdding(false);
@@ -85,11 +85,11 @@ const ListingCard = ({ title, description, price, images, stock, id }) => {
   };
 
   return (
-    <div className="w-64 -z-10 h-auto border border-gray-800 bg-black/30 backdrop-blur-md p-4 flex flex-col rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
+    <div className="w-64 h-auto border border-gray-800 bg-black/30 backdrop-blur-md p-4 flex flex-col rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
       {/* Image */}
       <div className="relative w-full h-48 mb-4">
         <img
-          src={images && images.length > 0 ? images[0] : logo}
+          src={images?.[0] || logo}
           alt={title}
           className="w-full h-full object-cover rounded-xl"
         />
@@ -98,13 +98,14 @@ const ListingCard = ({ title, description, price, images, stock, id }) => {
             Out of Stock
           </span>
         )}
-
         <button
           onClick={handleToggleSave}
           disabled={saving}
-          className={`absolute top-2 left-2 p-2 rounded-full ${
-            isSaved ? "bg-red-600 text-white" : "bg-gray-700 text-gray-200"
-          } hover:bg-red-500 transition`}
+          className={`absolute top-2 left-2 p-2 rounded-full transition ${
+            isSaved
+              ? "bg-red-600 text-white hover:bg-red-500"
+              : "bg-gray-700 text-gray-200 hover:bg-red-500"
+          }`}
         >
           <FaHeart />
         </button>
@@ -116,18 +117,18 @@ const ListingCard = ({ title, description, price, images, stock, id }) => {
       </h3>
       <p className="text-body text-gray-300 line-clamp-2 mb-3">{description}</p>
       <p className="text-primary-gold font-semibold text-lg mb-4">
-        Nle {price}
+        NLe {price}
       </p>
 
       {/* Buttons */}
-      <div className="w-full grid grid-rows-2 justify-between gap-3">
+      <div className="w-full grid grid-rows-2 gap-3">
         <Button
           onClick={handleAddToCart}
           disabled={stock === 0 || adding}
           className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-medium transition cursor-pointer ${
             stock === 0 || adding
               ? "bg-gray-500 text-gray-300"
-              : "bg-primary-gold text-black"
+              : "bg-primary-gold text-black hover:bg-yellow-400"
           }`}
         >
           <FaShoppingCart />{" "}
@@ -141,10 +142,10 @@ const ListingCard = ({ title, description, price, images, stock, id }) => {
             className={`flex items-center justify-center gap-2 rounded-xl cursor-pointer ${
               stock === 0
                 ? "bg-gray-500 text-gray-300"
-                : "bg-primary-gold text-black"
+                : "bg-primary-gold text-black hover:bg-yellow-400"
             }`}
           >
-            <FaShoppingCart /> View more
+            View more
           </Button>
         </Link>
       </div>

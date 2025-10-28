@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="Shop.jsx UI fix 3">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/ListingCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ListingCard.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="Saved Listing Prep" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +88,7 @@
       <workItem from="1761598050453" duration="491000" />
       <workItem from="1761599055560" duration="45000" />
       <workItem from="1761600846797" duration="11254000" />
-      <workItem from="1761655903463" duration="141000" />
+      <workItem from="1761655903463" duration="459000" />
     </task>
     <task id="LOCAL-00001" summary="CORS fix">
       <option name="closed" value="true" />
@@ -149,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761615031226</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Saved Listing Prep">
+      <option name="closed" value="true" />
+      <created>1761656117947</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761656117947</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +179,7 @@
     <MESSAGE value="Shop.jsx UI fix" />
     <MESSAGE value="Shop.jsx UI fix 2" />
     <MESSAGE value="Shop.jsx UI fix 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shop.jsx UI fix 3" />
+    <MESSAGE value="Saved Listing Prep" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saved Listing Prep" />
   </component>
 </project>

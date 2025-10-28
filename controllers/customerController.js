@@ -7,8 +7,8 @@ export const getUserDashboardStats = async (req, res) => {
         const userId = req.user._id;
 
         const [orders, saved] = await Promise.all([
-            Order.countDocuments({ user: userId, }),
-            SavedListings.countDocuments({ user: userId, status: "pending" }),
+            Order.countDocuments({ user: userId, status: "pending" }),
+            SavedListings.countDocuments({ user: userId }),
         ]);
 
         res.json({ orders, saved });

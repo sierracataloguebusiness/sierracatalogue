@@ -3,10 +3,12 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { FaShoppingBag, FaHeart, FaUser } from "react-icons/fa";
 import Loader from "../../../component/Loader.jsx";
+import { useAuth } from "../../../context/AuthContext.jsx";
 
 const API_BASE = "https://sierra-catalogue.onrender.com/api/customer";
 
-const CustomerDashboard = ({ user }) => {
+const CustomerDashboard = () => {
+  const { user } = useAuth();
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
@@ -35,7 +37,7 @@ const CustomerDashboard = ({ user }) => {
     <div className="bg-gray-900 text-white rounded-2xl p-6 shadow-lg border border-gray-800 mb-6">
       <div className="mb-6">
         <h1 className="text-2xl font-bold">
-          Welcome back, {user?.firstName || "Shopper"} 👋
+          Welcome back, {user?.firstName || "Customer"} 👋
         </h1>
         <p className="text-gray-400 mt-1">
           Here’s a quick overview of your Sierra Catalogue activity.

@@ -9,7 +9,7 @@ import logo from "/src/assets/Sierra Catalogue Logo.jpg";
 const API_BASE = "https://sierra-catalogue.onrender.com/api";
 
 const ListingCard = ({ _id, title, description, price, images, stock }) => {
-  const id = _id; // map backend _id to id
+  const id = _id;
   const [adding, setAdding] = useState(false);
   const [saving, setSaving] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -125,10 +125,8 @@ const ListingCard = ({ _id, title, description, price, images, stock }) => {
         <Button
           onClick={handleAddToCart}
           disabled={stock === 0 || adding}
-          className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-medium transition cursor-pointer ${
-            stock === 0 || adding
-              ? "bg-gray-500 text-gray-300"
-              : "bg-primary-gold text-black hover:bg-yellow-400"
+          className={`flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-medium transition cursor-pointer w-full ${
+            stock === 0 || adding ? "bg-gray-500 text-gray-300" : ""
           }`}
         >
           <FaShoppingCart />{" "}
@@ -139,10 +137,8 @@ const ListingCard = ({ _id, title, description, price, images, stock }) => {
           <Button
             style="secondary"
             disabled={stock === 0}
-            className={`flex items-center justify-center gap-2 rounded-xl cursor-pointer ${
-              stock === 0
-                ? "bg-gray-500 text-gray-300"
-                : "bg-primary-gold text-black hover:bg-yellow-400"
+            className={`flex items-center justify-center gap-2 rounded-xl cursor-pointer w-full ${
+              stock === 0 ? "bg-gray-500 text-gray-300" : ""
             }`}
           >
             View more

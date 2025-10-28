@@ -8,7 +8,15 @@ import logo from "/src/assets/Sierra Catalogue Logo.jpg";
 
 const API_BASE = "https://sierra-catalogue.onrender.com/api";
 
-const ListingCard = ({ _id, title, description, price, images, stock }) => {
+const ListingCard = ({
+  _id,
+  title,
+  description,
+  price,
+  images,
+  stock,
+  showHeart = true,
+}) => {
   const id = _id;
   const [adding, setAdding] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -98,17 +106,20 @@ const ListingCard = ({ _id, title, description, price, images, stock }) => {
             Out of Stock
           </span>
         )}
-        <button
-          onClick={handleToggleSave}
-          disabled={saving}
-          className={`absolute top-2 left-2 p-2 rounded-full transition ${
-            isSaved
-              ? "bg-red-600 text-white hover:bg-red-500"
-              : "bg-gray-700 text-gray-200 hover:bg-red-500"
-          }`}
-        >
-          <FaHeart />
-        </button>
+
+        {showHeart && (
+          <button
+            onClick={handleToggleSave}
+            disabled={saving}
+            className={`absolute top-2 left-2 p-2 rounded-full transition ${
+              isSaved
+                ? "bg-red-600 text-white hover:bg-red-500"
+                : "bg-gray-700 text-gray-200 hover:bg-red-500"
+            }`}
+          >
+            <FaHeart />
+          </button>
+        )}
       </div>
 
       {/* Text Info */}

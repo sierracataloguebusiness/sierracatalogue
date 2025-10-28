@@ -14,7 +14,7 @@ export const getVendorStats = async (req, res) => {
             isActive: true,
         });
 
-        const totalOrders = await VendorOrder.countDocuments({ vendor: vendorId });
+        const totalOrders = await VendorOrder.countDocuments({ vendor: vendorId, vendorStatus: "pending" });
 
         res.status(200).json({
             totalProducts,

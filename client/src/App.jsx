@@ -27,7 +27,6 @@ import AccessDenied from "./pages/AccessDenied.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 // Dashboard Pages
-import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import AdminPanel from "./pages/dashboard/admin/AdminPanel.jsx";
 import AdminManageUsers from "./pages/dashboard/admin/AdminManageUsers.jsx";
 import AdminManageVendors from "./pages/dashboard/admin/AdminManageVendors.jsx";
@@ -109,9 +108,6 @@ const App = () => {
             </PrivateRoute>
           }
         >
-          {/* Default dashboard */}
-          <Route index element={<Dashboard />} />
-
           {/* Admin Routes */}
           <Route
             path="admin"

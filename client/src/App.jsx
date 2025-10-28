@@ -216,7 +216,14 @@ const App = () => {
               </PrivateRoute>
             }
           />
-          <Route path="customer/settings" element={<div>Settings</div>} />
+          <Route
+            path="customer/settings"
+            element={
+              <PrivateRoute allowedRoles={["customer"]}>
+                <ComingSoon />
+              </PrivateRoute>
+            }
+          />
 
           {/* General Routes */}
           <Route path=":role/profile" element={<ProfilePage />} />

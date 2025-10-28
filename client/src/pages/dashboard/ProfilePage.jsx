@@ -104,6 +104,15 @@ const ProfilePage = () => {
       return;
     }
 
+    if (newPassword.length < 8) {
+      toast.error("Password must be at least 8 characters!");
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      toast.error("Passwords do not match");
+    }
+
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put(

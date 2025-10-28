@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="New vendor order update">
+    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="Profile page and coming soon for settings">
+      <change afterPath="$PROJECT_DIR$/client/src/pages/dashboard/customer/CustomerDashboard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/customerController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/customerRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/dashboard/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/dashboard/ProfilePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +97,7 @@
       <workItem from="1761599055560" duration="45000" />
       <workItem from="1761600846797" duration="11254000" />
       <workItem from="1761655903463" duration="781000" />
-      <workItem from="1761687381268" duration="2416000" />
+      <workItem from="1761687381268" duration="4736000" />
     </task>
     <task id="LOCAL-00001" summary="CORS fix">
       <option name="closed" value="true" />
@@ -184,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761689276886</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Profile page and coming soon for settings">
+      <option name="closed" value="true" />
+      <created>1761690662979</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1761690662979</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +223,7 @@
     <MESSAGE value="Saved Listing Prep" />
     <MESSAGE value="Saved Listing" />
     <MESSAGE value="New vendor order update" />
-    <option name="LAST_COMMIT_MESSAGE" value="New vendor order update" />
+    <MESSAGE value="Profile page and coming soon for settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Profile page and coming soon for settings" />
   </component>
 </project>

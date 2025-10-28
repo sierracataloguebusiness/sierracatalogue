@@ -40,6 +40,7 @@ import VendorShop from "./pages/dashboard/vendor/VendorShop.jsx";
 import VendorOrder from "./pages/dashboard/vendor/VendorOrder.jsx";
 import CustomerOrder from "./pages/dashboard/customer/CustomerOrder.jsx";
 import CustomerFavorite from "./pages/dashboard/customer/CustomerFavorite.jsx";
+import CustomerDashboard from "./pages/dashboard/customer/CustomerDashboard.jsx";
 
 const App = () => {
   const location = useLocation();
@@ -199,7 +200,14 @@ const App = () => {
           />
 
           {/* Customer Routes */}
-          <Route path="customer" element={<Dashboard />} />
+          <Route
+            path="customer"
+            element={
+              <PrivateRoute allowedRoles={["customer"]}>
+                <CustomerDashboard />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="customer/orders"
             element={

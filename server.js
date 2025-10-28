@@ -16,6 +16,7 @@ import vendorApplicationRoutes from "./routes/vendorApplicationRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import vendorRoutes from "./routes/vendorRoutes.js";
 import savedListingsRoutes from "./routes/savedListingsRoutes.js";
+import customerRoutes from "./routes/customerRoutes.js";
 
 dotenv.config();
 
@@ -52,6 +53,7 @@ app.use('/api/blogs', blogRoutes);
 app.use('/api/vendorApplication', vendorApplicationRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/vendor', vendorRoutes);
+app.use('/api/customer', customerRoutes)
 app.use("/api/saved", savedListingsRoutes);
 
 app.use("/listings", express.static(path.join(__dirname, "listings")));

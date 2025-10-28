@@ -23,6 +23,7 @@ const Shop = () => {
   const fetchListings = useCallback(
     async (query = "", categories = [], pageNum = 1) => {
       try {
+        aa;
         setGridLoading(true);
         const categoryQuery =
           categories.length > 0 ? `&categories=${categories.join(",")}` : "";

@@ -119,8 +119,8 @@ const Shop = () => {
         </div>
       </aside>
 
-      {/* Mobile Filter Button */}
-      <div className="lg:hidden flex justify-between items-center px-4 py-3 border-b border-gray-700 bg-black/30 sticky top-[81px] z-60 backdrop-blur-sm">
+      {/* Mobile Filter Button (Above Product Grid) */}
+      <div className="lg:hidden container mx-auto px-4 py-3 flex justify-between items-center border-b border-gray-700 bg-black/30 sticky top-[81px] backdrop-blur-sm z-0">
         <h1 className="text-lg font-semibold">Shop</h1>
         <button
           onClick={() => setMobileFilterOpen(true)}
@@ -191,8 +191,14 @@ const Shop = () => {
         ) : (
           <>
             <div className="grid justify-center items-center grid-cols-[repeat(auto-fit,minmax(288px,max-content))] gap-6">
-              {listings.map((listing) => (
-                <ListingCard key={listing._id} {...listing} />
+              {listings.map((listing, index) => (
+                <div
+                  key={`${listing._id}-${page}`}
+                  className="animate-fadeInUp"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <ListingCard {...listing} />
+                </div>
               ))}
             </div>
 

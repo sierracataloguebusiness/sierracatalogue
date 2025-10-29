@@ -43,19 +43,10 @@ app.use(cors({
 
 app.use(express.json());
 
-app.use(
-    prerender
-        .set("prerenderToken", process.env.PRERENDER_TOKEN)
-        .whitelisted(["www.sierracatalogue.com"])
-        .blacklisted([
-            "^/dashboard",
-            "^/cart",
-            "^/checkout",
-            "^/vendor",
-            "^/customer",
-            "^/api",
-        ])
-);
+prerender.set("prerenderToken", "PRERENDER_TOKEN");
+prerender.set("protocol", "https");
+prerender.set("host", "www.sierracatalogue.com");
+app.use(prerender);
 
 // API Routes
 app.use("/", sitemapRoutes);

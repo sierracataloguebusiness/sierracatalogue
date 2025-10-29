@@ -1,0 +1,17 @@
+# robots.txt for www.sierracatalogue.com
+User-agent: *
+Allow: /
+
+# Block private & low-value pages
+Disallow: /dashboard/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /vendor-application
+Disallow: /403
+Disallow: /coming-soon
+Disallow: /access-denied
+
+Crawl-delay: 5
+
+# Sitemap location (required)
+Sitemap: https://www.sierracatalogue.com/sitemap.xml

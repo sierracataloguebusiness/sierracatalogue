@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="Customer Dashboard route fix">
+    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="Customer Dashboard route fix 2">
+      <change afterPath="$PROJECT_DIR$/client/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/sitemap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +99,8 @@
       <workItem from="1761599055560" duration="45000" />
       <workItem from="1761600846797" duration="11254000" />
       <workItem from="1761655903463" duration="781000" />
-      <workItem from="1761687381268" duration="6249000" />
+      <workItem from="1761687381268" duration="7085000" />
+      <workItem from="1761758440585" duration="2402000" />
     </task>
     <task id="LOCAL-00001" summary="CORS fix">
       <option name="closed" value="true" />
@@ -209,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761694286428</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Customer Dashboard route fix 2">
+      <option name="closed" value="true" />
+      <created>1761694907867</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1761694907867</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +253,7 @@
     <MESSAGE value="Profile page and coming soon for settings" />
     <MESSAGE value="Customer Dashboard" />
     <MESSAGE value="Customer Dashboard route fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customer Dashboard route fix" />
+    <MESSAGE value="Customer Dashboard route fix 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customer Dashboard route fix 2" />
   </component>
 </project>

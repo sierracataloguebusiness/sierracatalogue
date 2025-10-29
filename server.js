@@ -17,11 +17,13 @@ import adminRoutes from "./routes/adminRoutes.js";
 import vendorRoutes from "./routes/vendorRoutes.js";
 import savedListingsRoutes from "./routes/savedListingsRoutes.js";
 import customerRoutes from "./routes/customerRoutes.js";
+import sitemapRoutes from "./routes/sitemap.js";
 
 dotenv.config();
 
 import path from 'path';
 import { fileURLToPath } from 'url';
+import prerender from "prerender-node";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,7 +43,22 @@ app.use(cors({
 
 app.use(express.json());
 
+app.use(
+    prerender
+        .set("prerenderToken", process.env.PRERENDER_TOKEN)
+        .whitelisted(["www.sierracatalogue.com"])
+        .blacklisted([
+            "^/dashboard",
+            "^/cart",
+            "^/checkout",
+            "^/vendor",
+            "^/customer",
+            "^/api",
+        ])
+);
+
 // API Routes
+app.use("/", sitemapRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/listings', listingRoutes);

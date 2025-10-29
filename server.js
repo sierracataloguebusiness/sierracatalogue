@@ -30,6 +30,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const PRERENDER_TOKEN = process.env.PRERENDER_TOKEN;
 
 // Middleware
 app.use(cors({
@@ -43,7 +44,7 @@ app.use(cors({
 
 app.use(express.json());
 
-prerender.set("prerenderToken", "PRERENDER_TOKEN");
+prerender.set("prerenderToken", PRERENDER_TOKEN);
 prerender.set("protocol", "https");
 prerender.set("host", "www.sierracatalogue.com");
 app.use(prerender);

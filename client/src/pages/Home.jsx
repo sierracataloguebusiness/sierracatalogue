@@ -25,7 +25,7 @@
 
 import React, { useEffect, useState } from "react";
 import Button from "../component/Button.jsx";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import { MdLocationPin, MdPersonAddAlt1 } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import {
@@ -125,53 +125,79 @@ const Home = () => {
   // =========================================================
   return (
     <>
-      {/* ================= SEO META TAGS ================= */}
+      {/* ================= SEO META TAGS ================= */};
       <Helmet>
+        {/* ---- Core Meta ---- */}
         <title>
-          Sierra Catalogue | Discover Sierra Leone’s Top Vendors & Products
+          Sierra Catalogue | Discover Sierra Leone's Top Brands Online
         </title>
         <meta
           name="description"
-          content="Browse Sierra Leone’s leading marketplace — discover verified vendors, shop trending products, and connect with businesses directly."
+          content="Explore Sierra Leone’s premier online marketplace — Sierra Catalogue. Shop quality products, connect with verified vendors, and experience seamless local e-commerce."
         />
+        <meta name="robots" content="index, follow" />
         <meta
           name="keywords"
-          content="Sierra Catalogue, Sierra Leone marketplace, online shopping, vendor listings, local businesses, ecommerce SL"
+          content="Sierra Leone shopping, online marketplace, Sierra Catalogue, local products, ecommerce SL"
         />
-        <link rel="canonical" href="https://www.sierracatalogue.com/" />
+        <meta name="author" content="Sierra Catalogue" />
 
-        {/* Open Graph / Facebook */}
+        {/* ---- Canonical & Open Graph ---- */}
+        <link rel="canonical" href="https://www.sierracatalogue.com" />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Sierra Catalogue" />
         <meta
           property="og:title"
-          content="Sierra Catalogue | Sierra Leone Marketplace"
+          content="Sierra Catalogue | Discover Sierra Leone's Top Brands Online"
         />
         <meta
           property="og:description"
-          content="Find and shop from authentic Sierra Leone businesses with Sierra Catalogue."
+          content="Shop trusted Sierra Leone brands. Fast delivery. Local support. Everything in one place."
         />
+        <meta property="og:url" content="https://www.sierracatalogue.com" />
         <meta
           property="og:image"
           content="https://www.sierracatalogue.com/assets/Sierra%20Catalogue%20Logo.jpg"
         />
-        <meta property="og:url" content="https://www.sierracatalogue.com/" />
+        <meta property="og:image:alt" content="Sierra Catalogue logo" />
 
-        {/* Twitter */}
+        {/* ---- Twitter ---- */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Sierra Catalogue | Sierra Leone Marketplace"
+          content="Sierra Catalogue | Sierra Leone’s Trusted Marketplace"
         />
         <meta
           name="twitter:description"
-          content="Discover vendors, shop products, and explore Sierra Leone’s growing online marketplace."
+          content="Discover Sierra Leone’s leading e-commerce hub for local vendors and buyers."
         />
         <meta
           name="twitter:image"
           content="https://www.sierracatalogue.com/assets/Sierra%20Catalogue%20Logo.jpg"
         />
-      </Helmet>
 
+        {/* ---- Structured Data (JSON-LD) ---- */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Sierra Catalogue",
+            url: "https://www.sierracatalogue.com",
+            logo: "https://www.sierracatalogue.com/assets/Sierra%20Catalogue%20Logo.jpg",
+            sameAs: [
+              "https://www.instagram.com/sierracatalogue",
+              "https://tiktok.com/@sierracatalogue",
+              "https://wa.me/23276325542",
+            ],
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+23276325542",
+              contactType: "Customer Support",
+              areaServed: "SL",
+            },
+          })}
+        </script>
+      </Helmet>
       {/* ======================== HERO BANNER ======================== */}
       <div className="relative px-4 min-h-[85vh] bg-[url('/assets/bg-sec.jpg')] bg-cover bg-center flex flex-col gap-6 justify-center items-center text-white">
         {/* Overlay for dark effect */}
@@ -204,7 +230,6 @@ const Home = () => {
           </Button>
         </div>
       </div>
-
       {/* ======================== HOW IT WORKS ======================== */}
       <section className="px-4 py-20 container mx-auto min-h-[50vh] flex flex-col items-center gap-10">
         <h2 className="heading text-center">How it works</h2>
@@ -242,7 +267,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-
       {/* ======================== CATEGORIES ======================== */}
       <section className="px-4 py-20 container mx-auto">
         <h2 className="heading text-center mb-10">Top Categories</h2>
@@ -260,7 +284,6 @@ const Home = () => {
           )}
         </div>
       </section>
-
       {/* ======================== LISTINGS ======================== */}
       <section className="px-4 py-20 container mx-auto">
         <h2 className="heading text-center mb-10">Top Listings</h2>
@@ -282,7 +305,6 @@ const Home = () => {
           </div>
         )}
       </section>
-
       {/* ======================== CONTACT SECTION ======================== */}
       <section className="flex flex-col items-center px-4 py-20 container mx-auto">
         <h2 className="heading mb-6">Contact Us</h2>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { FiSliders } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import ListingCard from "../../component/ListingCard.jsx";
 import axios from "axios";
 import { toast } from "react-toastify";

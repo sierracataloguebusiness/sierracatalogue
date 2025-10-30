@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Button from "../../component/Button.jsx";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 
 const ProductDetail = () => {
   const { id } = useParams();

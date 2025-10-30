@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { FiSliders } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
+import { Helmet } from "react-helmet-async";
 import ListingCard from "../../component/ListingCard.jsx";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -21,11 +22,13 @@ const Shop = () => {
   const limit = 20;
 
   const fetchListings = useCallback(
-    async (query = "", categories = [], pageNum = 1) => {
+    async (query = "", categoriesArr = [], pageNum = 1) => {
       try {
         setGridLoading(true);
         const categoryQuery =
-          categories.length > 0 ? `&categories=${categories.join(",")}` : "";
+          categoriesArr.length > 0
+            ? `&categories=${categoriesArr.join(",")}`
+            : "";
         const res = await axios.get(
           `${API_BASE}/listings?limit=${limit}&page=${pageNum}&search=${query}${categoryQuery}`,
         );
@@ -78,154 +81,184 @@ const Shop = () => {
     fetchListings(search, selectedCategories, newPage);
   };
 
+  // ======================= SEO Metadata =======================
+  const seoTitle = `${selectedCategories.length > 0 ? selectedCategories.join(", ") + " - " : ""}Shop | Sierra Catalogue`;
+  const seoDescription =
+    selectedCategories.length > 0
+      ? `Browse ${selectedCategories.join(", ")} from Sierra Leone’s top vendors. Find the best products and deals.`
+      : "Browse Sierra Leone’s top vendors and products. Find the best deals and shop local online.";
+  const canonicalUrl = `https://www.sierracatalogue.com/shop${page > 1 ? `?page=${page}` : ""}`;
+
   return (
-    <div className="flex flex-col lg:flex-row min-h-[49vh]">
-      {/* Sidebar (Desktop) */}
-      <aside className="border-r border-gray-700 max-lg:hidden lg:w-1/4 p-8 flex flex-col gap-6">
-        <div className="flex items-center gap-4">
-          <FiSliders className="size-5" />
-          <h3 className="text-2xl font-medium">Filters</h3>
-        </div>
-
-        <form onSubmit={handleSearch}>
-          <input
-            className="bg-transparent border border-gray-700 p-3 outline-none w-full rounded-md"
-            type="search"
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </form>
-
-        <div className="flex flex-col gap-4">
-          <h4 className="text-sm text-gray-400 uppercase font-medium mt-3">
-            Categories
-          </h4>
-          {categories.length === 0 ? (
-            <p className="text-gray-500 text-sm">No categories available</p>
-          ) : (
-            categories.map((cat) => (
-              <label key={cat._id} className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(cat._id)}
-                  onChange={() => handleCategoryChange(cat._id)}
-                  className="size-5 accent-primary-gold"
-                />
-                {cat.name}
-              </label>
-            ))
-          )}
-        </div>
-      </aside>
-
-      {/* Mobile Filter Button (Above Product Grid) */}
-      <div className="lg:hidden container mx-auto px-4 py-3 flex justify-between items-center border-b border-gray-700 bg-black/30 sticky top-[81px] backdrop-blur-sm z-0">
-        <h1 className="text-lg font-semibold">Shop</h1>
-        <button
-          onClick={() => setMobileFilterOpen(true)}
-          className="flex items-center gap-2 text-sm px-3 py-2 border border-gray-700 rounded-md"
-        >
-          <FiSliders /> Filters
-        </button>
-      </div>
-
-      {/* Mobile Filter Drawer */}
-      {mobileFilterOpen && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-end z-30">
-          <div className="bg-neutral-900 w-3/4 sm:w-1/2 p-6 overflow-y-auto relative">
-            <IoClose
-              onClick={() => setMobileFilterOpen(false)}
-              className="absolute top-4 right-4 size-6 cursor-pointer"
-            />
-            <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-              <FiSliders /> Filters
-            </h3>
-
-            <form
-              onSubmit={(e) => {
-                handleSearch(e);
-                setMobileFilterOpen(false);
-              }}
-              className="mb-6"
-            >
-              <input
-                className="bg-transparent border border-gray-700 p-3 outline-none w-full rounded-md"
-                type="search"
-                placeholder="Search products..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </form>
-
-            <div className="flex flex-col gap-3">
-              <h4 className="text-sm text-gray-400 uppercase font-medium">
-                Categories
-              </h4>
-              {categories.length === 0 ? (
-                <p className="text-gray-500 text-sm">No categories available</p>
-              ) : (
-                categories.map((cat) => (
-                  <label key={cat._id} className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedCategories.includes(cat._id)}
-                      onChange={() => handleCategoryChange(cat._id)}
-                      className="size-5 accent-primary-gold"
-                    />
-                    {cat.name}
-                  </label>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Main Shop Content */}
-      <div className="container mx-auto px-4 py-10 flex flex-col gap-6">
-        {gridLoading ? (
-          <Loader />
-        ) : listings.length === 0 ? (
-          <p className="text-center text-gray-400">No products available.</p>
-        ) : (
+    <>
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        {page > 1 && (
           <>
-            <div className="grid justify-center items-center grid-cols-[repeat(auto-fit,minmax(288px,max-content))] gap-6">
-              {listings.map((listing, index) => (
-                <div
-                  key={`${listing._id}-${page}`}
-                  className="animate-fadeInUp"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <ListingCard {...listing} />
-                </div>
-              ))}
-            </div>
-
-            {/* Pagination */}
-            <div className="flex justify-center gap-3 mt-6">
-              <button
-                onClick={() => handlePageChange(page - 1)}
-                disabled={page === 1}
-                className="px-4 py-2 rounded-md border border-gray-700 hover:bg-gray-700 disabled:opacity-50"
-              >
-                Previous
-              </button>
-              <span className="px-4 py-2 text-gray-300">
-                Page {page} of {totalPages}
-              </span>
-              <button
-                onClick={() => handlePageChange(page + 1)}
-                disabled={page === totalPages}
-                className="px-4 py-2 rounded-md border border-gray-700 hover:bg-gray-700 disabled:opacity-50"
-              >
-                Next
-              </button>
-            </div>
+            <link
+              rel="prev"
+              href={`https://www.sierracatalogue.com/shop?page=${page - 1}`}
+            />
+            <link
+              rel="next"
+              href={`https://www.sierracatalogue.com/shop?page=${page + 1}`}
+            />
           </>
         )}
+      </Helmet>
+
+      <div className="flex flex-col lg:flex-row min-h-[49vh]">
+        {/* Sidebar (Desktop) */}
+        <aside className="border-r border-gray-700 max-lg:hidden lg:w-1/4 p-8 flex flex-col gap-6">
+          <div className="flex items-center gap-4">
+            <FiSliders className="size-5" />
+            <h3 className="text-2xl font-medium">Filters</h3>
+          </div>
+
+          <form onSubmit={handleSearch}>
+            <input
+              className="bg-transparent border border-gray-700 p-3 outline-none w-full rounded-md"
+              type="search"
+              placeholder="Search products..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+
+          <div className="flex flex-col gap-4">
+            <h4 className="text-sm text-gray-400 uppercase font-medium mt-3">
+              Categories
+            </h4>
+            {categories.length === 0 ? (
+              <p className="text-gray-500 text-sm">No categories available</p>
+            ) : (
+              categories.map((cat) => (
+                <label key={cat._id} className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(cat._id)}
+                    onChange={() => handleCategoryChange(cat._id)}
+                    className="size-5 accent-primary-gold"
+                  />
+                  {cat.name}
+                </label>
+              ))
+            )}
+          </div>
+        </aside>
+
+        {/* Mobile Filter Button */}
+        <div className="lg:hidden container mx-auto px-4 py-3 flex justify-between items-center border-b border-gray-700 bg-black/30 sticky top-[81px] backdrop-blur-sm z-0">
+          <h1 className="text-lg font-semibold">Shop</h1>
+          <button
+            onClick={() => setMobileFilterOpen(true)}
+            className="flex items-center gap-2 text-sm px-3 py-2 border border-gray-700 rounded-md"
+          >
+            <FiSliders /> Filters
+          </button>
+        </div>
+
+        {/* Mobile Filter Drawer */}
+        {mobileFilterOpen && (
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-end z-30">
+            <div className="bg-neutral-900 w-3/4 sm:w-1/2 p-6 overflow-y-auto relative">
+              <IoClose
+                onClick={() => setMobileFilterOpen(false)}
+                className="absolute top-4 right-4 size-6 cursor-pointer"
+              />
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <FiSliders /> Filters
+              </h3>
+
+              <form
+                onSubmit={(e) => {
+                  handleSearch(e);
+                  setMobileFilterOpen(false);
+                }}
+                className="mb-6"
+              >
+                <input
+                  className="bg-transparent border border-gray-700 p-3 outline-none w-full rounded-md"
+                  type="search"
+                  placeholder="Search products..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </form>
+
+              <div className="flex flex-col gap-3">
+                <h4 className="text-sm text-gray-400 uppercase font-medium">
+                  Categories
+                </h4>
+                {categories.length === 0 ? (
+                  <p className="text-gray-500 text-sm">
+                    No categories available
+                  </p>
+                ) : (
+                  categories.map((cat) => (
+                    <label key={cat._id} className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedCategories.includes(cat._id)}
+                        onChange={() => handleCategoryChange(cat._id)}
+                        className="size-5 accent-primary-gold"
+                      />
+                      {cat.name}
+                    </label>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Main Shop Content */}
+        <div className="container mx-auto px-4 py-10 flex flex-col gap-6">
+          {gridLoading ? (
+            <Loader />
+          ) : listings.length === 0 ? (
+            <p className="text-center text-gray-400">No products available.</p>
+          ) : (
+            <>
+              <div className="grid justify-center items-center grid-cols-[repeat(auto-fit,minmax(288px,max-content))] gap-6">
+                {listings.map((listing, index) => (
+                  <div
+                    key={`${listing._id}-${page}`}
+                    className="animate-fadeInUp"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <ListingCard {...listing} />
+                  </div>
+                ))}
+              </div>
+
+              {/* Pagination */}
+              <div className="flex justify-center gap-3 mt-6">
+                <button
+                  onClick={() => handlePageChange(page - 1)}
+                  disabled={page === 1}
+                  className="px-4 py-2 rounded-md border border-gray-700 hover:bg-gray-700 disabled:opacity-50"
+                >
+                  Previous
+                </button>
+                <span className="px-4 py-2 text-gray-300">
+                  Page {page} of {totalPages}
+                </span>
+                <button
+                  onClick={() => handlePageChange(page + 1)}
+                  disabled={page === totalPages}
+                  className="px-4 py-2 rounded-md border border-gray-700 hover:bg-gray-700 disabled:opacity-50"
+                >
+                  Next
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

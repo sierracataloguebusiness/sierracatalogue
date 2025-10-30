@@ -25,6 +25,7 @@
 
 import React, { useEffect, useState } from "react";
 import Button from "../component/Button.jsx";
+import { Helmet } from "react-helmet-async";
 import { MdLocationPin, MdPersonAddAlt1 } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import {
@@ -124,6 +125,53 @@ const Home = () => {
   // =========================================================
   return (
     <>
+      {/* ================= SEO META TAGS ================= */}
+      <Helmet>
+        <title>
+          Sierra Catalogue | Discover Sierra Leone’s Top Vendors & Products
+        </title>
+        <meta
+          name="description"
+          content="Browse Sierra Leone’s leading marketplace — discover verified vendors, shop trending products, and connect with businesses directly."
+        />
+        <meta
+          name="keywords"
+          content="Sierra Catalogue, Sierra Leone marketplace, online shopping, vendor listings, local businesses, ecommerce SL"
+        />
+        <link rel="canonical" href="https://www.sierracatalogue.com/" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Sierra Catalogue | Sierra Leone Marketplace"
+        />
+        <meta
+          property="og:description"
+          content="Find and shop from authentic Sierra Leone businesses with Sierra Catalogue."
+        />
+        <meta
+          property="og:image"
+          content="https://www.sierracatalogue.com/assets/Sierra%20Catalogue%20Logo.jpg"
+        />
+        <meta property="og:url" content="https://www.sierracatalogue.com/" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Sierra Catalogue | Sierra Leone Marketplace"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover vendors, shop products, and explore Sierra Leone’s growing online marketplace."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.sierracatalogue.com/assets/Sierra%20Catalogue%20Logo.jpg"
+        />
+      </Helmet>
+
       {/* ======================== HERO BANNER ======================== */}
       <div className="relative px-4 min-h-[85vh] bg-[url('/assets/bg-sec.jpg')] bg-cover bg-center flex flex-col gap-6 justify-center items-center text-white">
         {/* Overlay for dark effect */}

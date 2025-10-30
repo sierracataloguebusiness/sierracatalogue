@@ -15,6 +15,7 @@ import {
   FaBoxOpen,
   FaShoppingCart,
 } from "react-icons/fa";
+import Button from "../../component/Button.jsx";
 
 const DashboardLayout = () => {
   const location = useLocation();
@@ -58,6 +59,11 @@ const DashboardLayout = () => {
 
   return (
     <div className="flex min-h-screen bg-zinc-950 text-gold-400">
+      <div className="fixed top-2 right-2 flex items-center justify-center">
+        if(role === "customer") return <Button to="/">Back to shop</Button>;
+        else return <Button to="/">Back to home</Button>;
+      </div>
+
       {/* Sidebar */}
       <aside
         className={`${

@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="Customer Dashboard route fix 2">
-      <change afterPath="$PROJECT_DIR$/client/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/sitemap.js" afterDir="false" />
+    <list default="true" id="784f2a2f-c102-469f-b493-1c4524d61f01" name="Changes" comment="Gmail update profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,12 +53,14 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\USER\\Desktop\\Sierra Catalogue Web\\client\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -73,8 +71,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -100,7 +109,10 @@
       <workItem from="1761600846797" duration="11254000" />
       <workItem from="1761655903463" duration="781000" />
       <workItem from="1761687381268" duration="7085000" />
-      <workItem from="1761758440585" duration="2402000" />
+      <workItem from="1761758440585" duration="4892000" />
+      <workItem from="1761851756437" duration="10149000" />
+      <workItem from="1761913514545" duration="5929000" />
+      <workItem from="1761939291647" duration="3713000" />
     </task>
     <task id="LOCAL-00001" summary="CORS fix">
       <option name="closed" value="true" />
@@ -222,7 +234,111 @@
       <option name="project" value="LOCAL" />
       <updated>1761694907867</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="SEO">
+      <option name="closed" value="true" />
+      <created>1761762151595</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1761762151596</updated>
+    </task>
+    <task id="LOCAL-00017" summary="SEO">
+      <option name="closed" value="true" />
+      <created>1761762188998</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1761762188998</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Prerender">
+      <option name="closed" value="true" />
+      <created>1761764836693</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1761764836693</updated>
+    </task>
+    <task id="LOCAL-00019" summary="SEO test">
+      <option name="closed" value="true" />
+      <created>1761854293635</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1761854293635</updated>
+    </task>
+    <task id="LOCAL-00020" summary="SEO test">
+      <option name="closed" value="true" />
+      <created>1761855427985</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1761855427985</updated>
+    </task>
+    <task id="LOCAL-00021" summary="SEO test 2">
+      <option name="closed" value="true" />
+      <created>1761856286129</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1761856286129</updated>
+    </task>
+    <task id="LOCAL-00022" summary="DashboardLayout.jsx">
+      <option name="closed" value="true" />
+      <created>1761857814518</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1761857814518</updated>
+    </task>
+    <task id="LOCAL-00023" summary="DashboardLayout.jsx">
+      <option name="closed" value="true" />
+      <created>1761858064221</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1761858064221</updated>
+    </task>
+    <task id="LOCAL-00024" summary="DashboardLayout.jsx 2">
+      <option name="closed" value="true" />
+      <created>1761858850230</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1761858850230</updated>
+    </task>
+    <task id="LOCAL-00025" summary="DashboardLayout.jsx 3">
+      <option name="closed" value="true" />
+      <created>1761859413327</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1761859413327</updated>
+    </task>
+    <task id="LOCAL-00026" summary="DashboardLayout.jsx 3">
+      <option name="closed" value="true" />
+      <created>1761913566209</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1761913566209</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Price Update">
+      <option name="closed" value="true" />
+      <created>1761919167349</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1761919167350</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Gmail update profile">
+      <option name="closed" value="true" />
+      <created>1761944751645</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1761944751646</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +370,15 @@
     <MESSAGE value="Customer Dashboard" />
     <MESSAGE value="Customer Dashboard route fix" />
     <MESSAGE value="Customer Dashboard route fix 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customer Dashboard route fix 2" />
+    <MESSAGE value="SEO" />
+    <MESSAGE value="Prerender" />
+    <MESSAGE value="SEO test" />
+    <MESSAGE value="SEO test 2" />
+    <MESSAGE value="DashboardLayout.jsx" />
+    <MESSAGE value="DashboardLayout.jsx 2" />
+    <MESSAGE value="DashboardLayout.jsx 3" />
+    <MESSAGE value="Price Update" />
+    <MESSAGE value="Gmail update profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gmail update profile" />
   </component>
 </project>

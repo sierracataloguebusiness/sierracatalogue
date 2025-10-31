@@ -104,7 +104,7 @@ const Checkout = () => {
           "Order placed successfully! The vendor will contact you to arrange payment.",
         );
 
-        navigate("/ordersuccess");
+        navigate("/shop");
       } else {
         throw new Error("Order creation failed — please try again.");
       }

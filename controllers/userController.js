@@ -20,7 +20,7 @@ export const getProfile = async  (req, res) => {
 export const updateProfile = async  (req, res) => {
     const userId = req.user.id;
 
-    let { firstName, lastName, otherNames, tel, address } = req.body;
+    let { firstName, lastName, otherNames, tel, email, address } = req.body;
 
     if (tel) {
         tel = tel.trim();
@@ -41,7 +41,7 @@ export const updateProfile = async  (req, res) => {
 
     const updatedUser = await User.findByIdAndUpdate(
         userId,
-        { firstName, lastName, otherNames, tel, address },
+        { firstName, lastName, otherNames, tel, email, address },
         {new: true, runValidators: true, context: 'query'}
     ).select('-password -resetToken -resetTokenExp');
 

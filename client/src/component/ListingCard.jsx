@@ -128,7 +128,7 @@ const ListingCard = ({
       </h3>
       <p className="text-body text-gray-300 line-clamp-2 mb-3">{description}</p>
       <p className="text-primary-gold font-semibold text-lg mb-4">
-        NLe {price}
+        NLe {(price * 1.1).toFixed(2)}
       </p>
 
       {/* Buttons */}

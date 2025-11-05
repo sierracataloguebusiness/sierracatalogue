@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { FaRegTrashCan } from "react-icons/fa6";
 import Button from "../../component/Button.jsx";
 
@@ -40,7 +39,7 @@ const Cart = () => {
   }, []);
 
   const total = cartItems.reduce((sum, item) => {
-    const price = item.listingId?.price ?? 0;
+    const price = item.listingId?.price * 1.1 ?? 0;
     const qty = item.quantity ?? 0;
     return sum + price * qty;
   }, 0);
@@ -120,7 +119,7 @@ const Cart = () => {
                       {listing.title || "Untitled"}
                     </h3>
                     <p className="text-gray-400 font-medium text-sm">
-                      Nle {listing.price ?? 0}
+                      NLe {(listing.price * 1.1).toFixed(2)}
                     </p>
                     <div className="mt-2 flex items-center gap-2">
                       <button

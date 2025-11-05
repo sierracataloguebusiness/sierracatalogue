@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import FormInput from "../../component/Form/FormComponents/FormInput.jsx";
+import Button from "../../component/Button.jsx";
 
 const VendorApplicationForm = () => {
   const [formData, setFormData] = useState({
@@ -168,15 +169,15 @@ const VendorApplicationForm = () => {
             error={errors.address}
           />
 
-          <button
+          <Button
             type="submit"
             disabled={loading}
-            className={`w-full bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-3 rounded-lg mt-4 transition ${
+            className={`w-full transition ${
               loading ? "opacity-75 cursor-not-allowed" : ""
             }`}
           >
             {loading ? "Submitting..." : "Submit Application"}
-          </button>
+          </Button>
         </form>
       </div>
     </div>

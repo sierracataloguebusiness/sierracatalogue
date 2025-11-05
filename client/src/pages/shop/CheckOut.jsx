@@ -47,7 +47,8 @@ const Checkout = () => {
   }, []);
 
   const subtotal = cartItems.reduce(
-    (sum, item) => sum + (item.listingId?.price ?? 0) * (item.quantity ?? 0),
+    (sum, item) =>
+      sum + (item.listingId?.price * 1.1 ?? 0) * (item.quantity ?? 0),
     0,
   );
 
@@ -161,11 +162,12 @@ const Checkout = () => {
                 <div>
                   <h3 className="font-medium">{item.listingId?.title}</h3>
                   <p className="text-gray-400">
-                    NLe {item.listingId?.price} × {item.quantity}
+                    NLe {item.listingId?.price * 1.1} × {item.quantity}
                   </p>
                 </div>
                 <p className="font-bold">
-                  NLe {(item.listingId?.price ?? 0) * (item.quantity ?? 0)}
+                  NLe{" "}
+                  {(item.listingId?.price * 1.1 ?? 0) * (item.quantity ?? 0)}
                 </p>
               </div>
             ))
